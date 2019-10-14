@@ -30,7 +30,8 @@ twitter_username: alldroll
 github_username:  suggest-go
 
 # Build settings
-theme: minima
+theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
 

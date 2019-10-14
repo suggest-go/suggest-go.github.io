@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+---
+layout: default
+title: Home
+nav_order: 1
+description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
+permalink: /
+---
 
-You can use the [editor on GitHub](https://github.com/suggest-go/suggest.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+# Suggest - Open source Approximate String Search Tools
+{: .fs-6 .fw-300 }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Suggest is an open-source Approximate String Search Tools under MIT License.
+This project provides the list of tools for efficient work with
 
-### Markdown
+* Approximate string search in a dictionary
+* Autocomplete string search in a dictionary
+* N-Gram language model scoring
+* Spellchecking support
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+For more information please see [purpose]({{ site.baseurl }}{% link docs/purpose.md %})
 
-```markdown
-Syntax highlighted code block
+[Get started now]({{ site.baseurl }}{% link docs/getting-started.md %}){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/suggest-go/suggest){: .btn .fs-5 .mb-4 .mb-md-0 }
 
-# Header 1
-## Header 2
-### Header 3
+---
 
-- Bulleted
-- List
+### License
 
-1. Numbered
-2. List
+Suggest is distributed by an [MIT license](https://github.com/suggest-go/suggest/blob/master/LICENCE).
 
-**Bold** and _Italic_ and `Code` text
+### Contributing
 
-[Link](url) and ![Image](src)
-```
+When contributing to this repository, please first discuss the change you wish to make via issue,
+email, or any other method with the owners of this repository before making a change.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+### Code of Conduct
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/suggest-go/suggest.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+TODO
