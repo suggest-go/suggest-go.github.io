@@ -16,17 +16,12 @@ Having the possibility of Top-k approximate string search in a dictionary is sig
 
 ![Demo](/assets/suggest-demo-cars.gif)
 
-
-### NGram language model
-
-TODO describe me
-
-
 ### Spellchecker
 
-TODO describe me
+Context-sensitive spell checker could be very useful for such cases as:
 
+* Phrase completion while you type
+* Did you mean feature
+* Checks for misspellings in a text
 
-### Phrase suggester
-
-TODO describe me
+![Demo](/assets/spellchecker-demo.gif)

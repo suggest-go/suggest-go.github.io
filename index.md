@@ -31,8 +31,3 @@ Suggest is distributed by an [MIT license](https://github.com/suggest-go/suggest
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change.
-
-
-### Code of Conduct
-
-TODO

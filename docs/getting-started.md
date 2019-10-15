@@ -4,7 +4,14 @@ title: Getting Started
 nav_order: 2
 ---
 
-Your first program
+## Creating approximate string search example
+
+Download `suggest` package via `go get` command
+
+```
+$ go get github.com/suggest-go/suggest
+```
+
 
 ```go
 // we create InMemoryDictionary. Here we can use anything we want,
