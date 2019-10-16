@@ -20,6 +20,7 @@ Having the possibility of Top-k approximate string search in a dictionary is sig
 
 <script src="/assets/js/jquery-1.10.2.js"></script>
 <script src="/assets/js/typeahead.js"></script>
+<link rel="stylesheet" href="/assets/css/autocomplete.css">
 
 <script type="text/javascript">
     var suggest = new Bloodhound({
