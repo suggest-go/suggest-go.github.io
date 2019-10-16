@@ -14,6 +14,10 @@ There could be a lot of dictionaries, such as a list of vehicle models names, ci
 Some of these dictionaries could be pretty large, and it might be tedious for a customer to choose the correct option from the dictionary.
 Having the possibility of Top-k approximate string search in a dictionary is significant in these cases.
 
+This demo shows autocomplete feature for the dictionary of 2000 vehicle model names.
+
+*Please type "tayota cmry"*
+
 <div id="remote" class="suggest-query-form">
     <input type="search" id="query" class="typeahead" placeholder="Type model name ...">
 </div>
@@ -66,5 +70,7 @@ Context-sensitive spell checker could be very useful for such cases as:
 * Phrase completion while you type
 * Did you mean feature
 * Checks for misspellings in a text
+
+{: .mt-6 }
 
 ![Demo](/assets/spellchecker-demo.gif)
