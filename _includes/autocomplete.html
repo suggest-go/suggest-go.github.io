@@ -1,0 +1,44 @@
+<div id="remote" class="suggest-query-form">
+    <input type="search" id="query" class="typeahead" placeholder="Type here something ...">
+</div>
+
+<script src="/assets/js/jquery-1.10.2.js"></script>
+<script src="/assets/js/typeahead.js"></script>
+<link rel="stylesheet" href="/assets/css/autocomplete.css">
+
+<script type="text/javascript">
+    function toTitleCase(str) {
+        return str.replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
+
+    var suggest = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        remote: {
+            url: "https://suggest-words-demo.herokuapp.com/suggest/{{ dict }}/%QUERY/?topK=5&metric=Cosine&similarity=0.3",
+            wildcard: '%QUERY',
+            rateLimitWait: 150,
+            transform: function (data) {
+                return data.map(function (item) {
+                    return toTitleCase(item.Value);
+                });
+            },
+            filter: false,
+        }
+    });
+
+    suggest.initialize();
+
+    $('#remote .typeahead').typeahead({
+        minLength: 2,
+        highlight: true,
+        hint: false,
+        autoselect: false,
+    }, {
+        name: 'suggest',
+        source: suggest.ttAdapter(),
+        limit: 10,
+    });
+</script>
