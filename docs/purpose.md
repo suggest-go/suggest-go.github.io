@@ -23,21 +23,29 @@ Having the possibility of Top-k approximate string search in a dictionary is sig
 <link rel="stylesheet" href="/assets/css/autocomplete.css">
 
 <script type="text/javascript">
+    function toTitleCase(str) {
+        return str.replace(/\w\S*/g, function(txt){
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
+
     var suggest = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.whitespace,
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
             url: "https://suggest-words-demo.herokuapp.com/suggest/cars/%QUERY/?topK=5&metric=Cosine&similarity=0.3",
             wildcard: '%QUERY',
-            rateLimitWait: 200,
+            rateLimitWait: 150,
             transform: function (data) {
                 return data.map(function (item) {
-                    return item.Value;
+                    return toTitleCase(item.Value);
                 });
             },
             filter: false,
         }
     });
+
+    suggest.initialize();
 
     $('#remote .typeahead').typeahead({
         minLength: 2,
@@ -46,7 +54,8 @@ Having the possibility of Top-k approximate string search in a dictionary is sig
         autoselect: false,
     }, {
         name: 'suggest-cars',
-        source: suggest,
+        source: suggest.ttAdapter(),
+        limit: 10,
     });
 </script>
 
