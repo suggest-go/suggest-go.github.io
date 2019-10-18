@@ -7,38 +7,41 @@
 <link rel="stylesheet" href="/assets/css/autocomplete.css">
 
 <script type="text/javascript">
-    function toTitleCase(str) {
-        return str.replace(/\w\S*/g, function(txt){
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
-    }
+    var mixed = {
+        name: "suggest",
+        async: true,
+        limit: 5,
+        source: function (query, syncResults, asyncResults) {
+            var q = encodeURIComponent(query);
 
-    var suggest = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.whitespace,
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        remote: {
-            url: "https://suggest-words-demo.herokuapp.com/suggest/{{ dict }}/%QUERY/?topK=5&metric=Cosine&similarity=0.3",
-            wildcard: '%QUERY',
-            rateLimitWait: 150,
-            transform: function (data) {
-                return data.map(function (item) {
-                    return toTitleCase(item.Value);
-                });
-            },
-            filter: false,
+            $.when(
+                $.getJSON("https://suggest-words-demo.herokuapp.com/autocomplete/{{ dict }}/" + q + "/?topK=5"),
+                $.getJSON("https://suggest-words-demo.herokuapp.com/suggest/{{ dict }}/" + q + "/?topK=5&metric=Cosine&similarity=0.3")
+            ).done(function (autocomplete, suggest) {
+                var data1 = autocomplete[0];
+                var data2 = suggest[0];
+                var result = [];
+
+                for (var i = 0; i < data1.length; ++i) {
+                    result.push(data1[i].Value);
+                }
+
+                for (var i = 0; i < data2.length; ++i) {
+                    if (result.indexOf(data2[i].Value) == -1) {
+                        result.push(data2[i].Value);
+                    }
+                }
+
+                asyncResults(result);
+            });
         }
-    });
-
-    suggest.initialize();
+    };
 
     $('#remote .typeahead').typeahead({
         minLength: 2,
         highlight: true,
         hint: false,
         autoselect: false,
-    }, {
-        name: 'suggest',
-        source: suggest.ttAdapter(),
-        limit: 10,
-    });
+    }, mixed);
+
 </script>
