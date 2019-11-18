@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Suggest
+title: Suggest words
 nav_order: 1
 parent: Demo
 ---
 
-## Suggest demo
+## Suggest english words
 
 The demo shows approximate string search in a dictionary with more than 200k English [words](https://raw.githubusercontent.com/suggest-go/suggest/master/pkg/suggest/testdata/words.dict).
 

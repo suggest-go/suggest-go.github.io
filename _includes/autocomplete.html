@@ -7,41 +7,42 @@
 <link rel="stylesheet" href="/assets/css/autocomplete.css">
 
 <script type="text/javascript">
-    var mixed = {
-        name: "suggest",
-        async: true,
-        limit: 5,
-        source: function (query, syncResults, asyncResults) {
-            var q = encodeURIComponent(query);
+    $(function () {
+        var mixed = {
+            name: "suggest",
+            async: true,
+            limit: 5,
+            source: function (query, syncResults, asyncResults) {
+                var q = encodeURIComponent(query);
 
-            $.when(
-                $.getJSON("https://suggest-words-demo.herokuapp.com/autocomplete/{{ dict }}/" + q + "/?topK=5"),
-                $.getJSON("https://suggest-words-demo.herokuapp.com/suggest/{{ dict }}/" + q + "/?topK=5&metric=Cosine&similarity=0.3")
-            ).done(function (autocomplete, suggest) {
-                var data1 = autocomplete[0];
-                var data2 = suggest[0];
-                var result = [];
+                $.when(
+                    $.getJSON("https://suggest-words-demo.herokuapp.com/autocomplete/{{ dict }}/" + q + "/?topK=5"),
+                    $.getJSON("https://suggest-words-demo.herokuapp.com/suggest/{{ dict }}/" + q + "/?topK=5&metric=Cosine&similarity=0.3")
+                ).done(function (autocomplete, suggest) {
+                    var data1 = autocomplete[0];
+                    var data2 = suggest[0];
+                    var result = [];
 
-                for (var i = 0; i < data1.length; ++i) {
-                    result.push(data1[i].Value);
-                }
-
-                for (var i = 0; i < data2.length; ++i) {
-                    if (result.indexOf(data2[i].Value) == -1) {
-                        result.push(data2[i].Value);
+                    for (var i = 0; i < data1.length; ++i) {
+                        result.push(data1[i].Value);
                     }
-                }
 
-                asyncResults(result);
-            });
-        }
-    };
+                    for (var i = 0; i < data2.length; ++i) {
+                        if (result.indexOf(data2[i].Value) == -1) {
+                            result.push(data2[i].Value);
+                        }
+                    }
 
-    $('#remote .typeahead').typeahead({
-        minLength: 2,
-        highlight: true,
-        hint: false,
-        autoselect: false,
-    }, mixed);
+                    asyncResults(result);
+                });
+            }
+        };
 
+        $('#remote .typeahead').typeahead({
+            minLength: 2,
+            highlight: true,
+            hint: false,
+            autoselect: false,
+        }, mixed);
+    });
 </script>
