@@ -22,7 +22,13 @@ $ make build
 
 * Extract downloaded language model and perform
 ```
-$ go run pkg/cmd/spellchecker/main.go -config PATH_TO_LM/config.json
+$ build/./spellchecker eval -c PATH_TO_LM/config.json
+```
+
+or in order to run http server, do the next
+```
+$ build/./spellchecker service-run -c PATH_TO_LM/config.json -p 8083
+$ curl http://localhost:8083/predict/ja/
 ```
 
 {: .mt-6 }
