@@ -7,8 +7,14 @@ parent: Demo
 
 ## Spellchecker demo
 
-Online spellchecker demo is coming soon
-{: .label .label-yellow }
+The demo shows spellchecker feature for restricted N-Gram language model built on
+[Blog Authorship Corpus](http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm)
+
+
+{% include spellchecker.html %}
+
+{: .mt-10 }
+## Run locally
 
 You can run a spellchecker CLI locally, we should do the next steps:
 
@@ -30,7 +36,3 @@ or in order to run http server, do the next
 $ build/./spellchecker service-run -c PATH_TO_LM/config.json -p 8083
 $ curl http://localhost:8083/predict/ja/
 ```
-
-{: .mt-6 }
-
-![Demo](/assets/spellchecker-demo.gif)

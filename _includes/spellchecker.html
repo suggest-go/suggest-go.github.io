@@ -1,0 +1,32 @@
+<div id="remote" class="spellchecker-query-form">
+    <input type="search" id="squery" class="typeahead" placeholder="Type here something ..." autocomplete="off">
+</div>
+
+<script src="/assets/js/jquery-1.10.2.js"></script>
+<script src="/assets/js/typeahead.js"></script>
+<link rel="stylesheet" href="/assets/css/autocomplete.css">
+
+<script type="text/javascript">
+    $(function () {
+        var mixed = {
+            name: "spellchecker",
+            async: true,
+            limit: 5,
+            source: function (query, syncResults, asyncResults) {
+                var q = encodeURIComponent(query);
+
+                $.getJSON("https://spellchecker-demo.herokuapp.com/predict/" + q + "/?topK=5")
+                .done(function (suggest) {
+                    asyncResults(suggest);
+                });
+            }
+        };
+
+        $('#remote .typeahead').typeahead({
+            minLength: 1,
+            highlight: true,
+            hint: false,
+            autoselect: false,
+        }, mixed);
+    });
+</script>
