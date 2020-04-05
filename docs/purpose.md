@@ -16,10 +16,7 @@ Having the possibility of Top-k approximate string search in a dictionary is sig
 
 This demo shows autocomplete feature for the dictionary of 2000 vehicle model names.
 
-*Please type "tayota cmry"*
-
-{% assign dict = "cars" %}
-{% include autocomplete.html %}
+![Demo](/assets/suggest-eval.gif)
 
 ### Spellchecker
 
@@ -27,8 +24,8 @@ Context-sensitive spell checker could be very useful for such cases as:
 
 * Phrase completion while you type
 * Did you mean feature
-* Checks for misspellings in a text
+* Checks for misspellings in a text based on the context of the surrounding words
 
 {: .mt-6 }
 
-![Demo](/assets/spellchecker-demo.gif)
+![Demo](/assets/spellchecker-eval.gif)
