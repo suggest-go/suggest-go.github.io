@@ -15,7 +15,7 @@
             source: function (query, syncResults, asyncResults) {
                 var q = encodeURIComponent(query);
 
-                $.getJSON("https://spellchecker-demo.herokuapp.com/predict/" + q + "/?topK=5")
+                $.getJSON("https://www.suggestdemo.app/predict/" + q + "/?topK=5")
                 .done(function (suggest) {
                     asyncResults(suggest);
                 });

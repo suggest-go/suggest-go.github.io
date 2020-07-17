@@ -16,8 +16,8 @@
                 var q = encodeURIComponent(query);
 
                 $.when(
-                    $.getJSON("https://suggest-words-demo.herokuapp.com/autocomplete/{{ dict }}/" + q + "/?topK=5"),
-                    $.getJSON("https://suggest-words-demo.herokuapp.com/suggest/{{ dict }}/" + q + "/?topK=5&metric=Cosine&similarity=0.3")
+                    $.getJSON("https://www.suggestdemo.app/autocomplete/{{ dict }}/" + q + "/?topK=5"),
+                    $.getJSON("https://www.suggestdemo.app/suggest/{{ dict }}/" + q + "/?topK=5&metric=Cosine&similarity=0.3")
                 ).done(function (autocomplete, suggest) {
                     var data1 = autocomplete[0];
                     var data2 = suggest[0];
