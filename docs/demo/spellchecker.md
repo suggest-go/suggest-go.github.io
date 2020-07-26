@@ -24,7 +24,7 @@ $ git clone https://github.com/suggest-go/suggest.git
 $ make build
 ```
 
-* Download an English [language model](https://app.box.com/s/elogon8jdimqjdvfncr06b0qjngasljc) built on [Blog Authorship Corpus](http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm)
+* Download an English [language model](https://app.box.com/s/ze53gtxetnqkj5pln7aogge1xo2ca3s0) built on [Blog Authorship Corpus](http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm)
 
 * Extract downloaded language model and perform
 ```
