@@ -29,10 +29,11 @@ twitter_username: alldroll
 github_username:  suggest-go
 
 # Build settings
-#theme: just-the-docs
+color_scheme: suggest
 remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
