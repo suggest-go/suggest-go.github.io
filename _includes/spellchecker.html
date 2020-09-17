@@ -15,7 +15,7 @@
             source: function (query, syncResults, asyncResults) {
                 var q = encodeURIComponent(query);
 
-                $.getJSON("https://www.suggestdemo.app/predict/" + q + "/?topK=5")
+                $.getJSON("https://d123391d2bd7.ngrok.io/predict/" + q + "/?topK=5")
                 .done(function (suggest) {
                     asyncResults(suggest);
                 });
